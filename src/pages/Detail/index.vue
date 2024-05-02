@@ -17,30 +17,28 @@
   </div>
 </template>
 
-<script >
- import { defineComponent } from 'vue'
-  export default  defineComponent({
-    name:'Detail'
-  })
+<script>
+import { defineComponent } from "vue";
+export default defineComponent({
+  name: "Detail",
+});
 </script>
-<script  setup>
-import { getshowHeadlineDetail } from "../../api/index"
-import { ref , onMounted } from "vue"
-import { useRoute } from 'vue-router'
-const route = useRoute() // 路由信息对象
+<script setup>
+import { getshowHeadlineDetail } from "../../api/index";
+import { ref, onMounted } from "vue";
+import { useRoute } from "vue-router";
+const route = useRoute(); // 路由信息对象
 
-const detailList = ref({}) //详情数据
+const detailList = ref({}); //详情数据
 //获取详情初始化数据
 const getDetailList = async () => {
-  let result = await getshowHeadlineDetail(route.query.hid)
-  detailList.value = result.headline
-}
+  let result = await getshowHeadlineDetail(route.query.hid);
+  detailList.value = result.headline;
+};
 // 页面初始化钩子
 onMounted(() => {
-  getDetailList()
-})
-
-  
+  getDetailList();
+});
 </script>
 
 <style lang="less" scoped>
@@ -54,11 +52,11 @@ onMounted(() => {
     span {
       padding-right: 15px;
       font-size: 14px;
-      color: #8d91aa;
+      color: #000000;
     }
     p {
       font-size: 14px;
-      color: #2b2e30;
+      color: #000000;
     }
   }
 }
